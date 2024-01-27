@@ -100,6 +100,7 @@ The configuration file is automatically generated in `game/csgo/addons/counterst
 
 - `MapCycle`: An object containing parameters for map rotation.
   - `RandomOrder`: Enables or disables random map rotation.
+  - `MapChangeAtTheEndOfMatchDelay`: Delay for map change once the match is finished (when we reach the win panel)
 
 - `Rtv`: An object containing parameters for Rock The Vote (RTV) voting.
   - `Enabled`: Enables or disables RTV.
@@ -127,7 +128,8 @@ Each map in the configuration file includes the following attributes:
 ```json
 {
   "MapCycle": {
-    "RandomOrder": false
+    "RandomOrder": false,
+    "MapChangeAtTheEndOfMatchDelay": 19
   },
   "Maps": [
     {
@@ -196,7 +198,7 @@ Set the map on your server with `host_workshop_map 123123123` and when the map h
 ## <u>Author</u>
 - ModuleName: MapCycle
 - ModuleAuthor: NANOR
-- ModuleVersion: 1.4.1
+- ModuleVersion: 1.4.2
 
 ## <u>Support</u>
 For assistance, please raise an issue on the GitHub repository of the project.

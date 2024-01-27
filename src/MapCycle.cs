@@ -15,7 +15,7 @@ public partial class MapCycle : BasePlugin, IPluginConfig<ConfigGen>
     // plugin informations
     public override string ModuleName => "MapCycle";
     public override string ModuleAuthor => "NANOR";
-    public override string ModuleVersion => "1.4.1";
+    public override string ModuleVersion => "1.4.2";
 
     // plugin configs
     public ConfigGen Config { get; set; } = null!;
@@ -79,7 +79,7 @@ public partial class MapCycle : BasePlugin, IPluginConfig<ConfigGen>
             SetNextMap(Server.MapName);
 
         // Change the map
-        AddTimer(19f, ChangeMap, TimerFlags.STOP_ON_MAPCHANGE);
+        AddTimer(Config.MapCycle.MapChangeAtTheEndOfMatchDelay, ChangeMap, TimerFlags.STOP_ON_MAPCHANGE);
     }
 
     private void ChangeMap()

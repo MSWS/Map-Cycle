@@ -18,4 +18,7 @@ public class MapCycleConfig
     // Rtv enabled
     [JsonPropertyName("RandomOrder")]
     public bool Randomize { get; set; } = false;
+    // Rtv enabled
+    [JsonPropertyName("MapChangeAtTheEndOfMatchDelay")]
+    public int MapChangeAtTheEndOfMatchDelay { get; set; } = 19;
 }
