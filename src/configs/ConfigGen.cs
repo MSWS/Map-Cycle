@@ -36,6 +36,7 @@ namespace MapCycle
             if (newConfig != null)
             {
                 Maps = newConfig.Maps;
+                Maps.RemoveAll(x => x.Name == "test_official_map" || x.Name == "test_workshop");
                 MapCycle = newConfig.MapCycle;
                 Rtv = newConfig.Rtv;
             }

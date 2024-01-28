@@ -17,8 +17,7 @@ namespace MapCycle
             }
 
             // change the convar mp_match_end_changelevel to 0
-            var chLvlCvar = ConVar.Find("mp_match_end_changelevel");
-            chLvlCvar?.SetValue(false);
+            SetConVarConfig();
 
             if (Config.Rtv.Enabled)
                 InitRTV();
@@ -33,6 +32,20 @@ namespace MapCycle
             Server.PrintToConsole("[MapCycle ERROR] Bad config version. Save your maps in a separate file, delete the config file and restart the server.");
             Server.PrintToChatAll($" {ChatColors.Red}[MapCycle ERROR] {ChatColors.Default}Bad config version. Save your maps in a separate file, delete the config file and restart the server.");
             AddTimer(60, AlertOfBadConfigVersionRecursive, TimerFlags.STOP_ON_MAPCHANGE);
+        }
+
+        private void SetConVarConfig()
+        {
+            var cvar1 = ConVar.Find("mp_match_end_changelevel");
+            cvar1?.SetValue(false);
+            var cvar2 = ConVar.Find("mp_match_end_restart");
+            cvar2?.SetValue(false);
+            var cvar3 = ConVar.Find("mp_endmatch_votenextmap");
+            cvar3?.SetValue(false);
+            var cvar4 = ConVar.Find("mp_endmatch_votenextmap_keepcurrent");
+            cvar4?.SetValue(false);
+            var cvar5 = ConVar.Find("mp_endmatch_votenextleveltime");
+            cvar5?.SetValue(false);
         }
     }
 }

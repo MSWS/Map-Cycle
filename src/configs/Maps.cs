@@ -10,8 +10,8 @@ namespace MapCycle
         [JsonPropertyName("Maps")]
         public List<MapItem> Maps { get; set; } = new List<MapItem>
         {
-            new MapItem { Name = "de_dust2", DisplayName = "Dust 2", Id = "de_dust2", Workshop = false },
-            new MapItem { Name = "de_aztec", DisplayName = "Aztec", Id = "3070960099", Workshop = true }
+            new MapItem { Name = "test_official_map", DisplayName = "Offi (REMOVE IT)", Id = "test_official_map", Workshop = false },
+            new MapItem { Name = "test_workshop", DisplayName = "WS (REMOVE IT)", Id = "123123123", Workshop = true }
         };
 
 
