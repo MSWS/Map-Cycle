@@ -25,5 +25,8 @@
     "RtvNeedMoreRtvForVote": "%prefix% {0}/{1}. We need more players to start a vote",
     "RtvNeedMoreRtvForSwitchMap": "%prefix% {0}/{1}. We need more players to switch the map",
     "AlreadySaidRtv": "%prefix% You already said RTV",
-    "RtvReset": "%prefix% RTV has been reset"
+    "RtvReset": "%prefix% RTV has been reset",
+    "ExtendMap": "Continue the current map",
+    "VoteConfirmExtend": "%prefix% You voted to extend the current map",
+    "VoteEndingIn": "%prefix% The vote will end in {0} seconds"
 }

@@ -4,7 +4,6 @@ using CounterStrikeSharp.API.Modules.Timers;
 using CounterStrikeSharp.API.Modules.Utils;
 using Microsoft.Extensions.Localization;
 using CounterStrikeSharp.API.Modules.Menu;
-using System.Text.RegularExpressions;
 
 namespace MapCycle
 {
@@ -110,6 +109,7 @@ namespace MapCycle
             VoteList.Clear();
             PlayerVotedList.Clear();
             RtvCommand();
+            VoteCountdown();
             AddTimer(duration, () => EndVote(voteTriggeredByPlayer), TimerFlags.STOP_ON_MAPCHANGE);
         }
 
@@ -153,12 +153,38 @@ namespace MapCycle
                 return;
             }
 
-            NextMap = MapList[mapIndex];
+            if(Config.Rtv.ExtendMap && mapIndex == MapList.Count) {
+                LocalizationExtension.PrintLocalizedChatAll(Localizer, "ExtendMap");
+                NextMap = Config.Maps.Find(x => x.Name == Server.MapName);
+            } else 
+            {
+                NextMap = MapList[mapIndex];
+            }
             LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteFinished");
             OnEndVote(EventArgs.Empty);
             VoteList = new List<int>();
             PlayerVotedList = new List<string>();
         }
+
+        private void VoteCountdown()
+        {
+            if(Localizer == null) return;
+            if(Config == null) return;
+            var startTimerAt = Config.Rtv.VoteDurationInSeconds - 10;
+
+            // Add a timer for last 5 seconds
+            AddTimer(startTimerAt, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 10), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 1, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 9), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 2, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 8), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 3, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 7), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 4, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 6), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 5, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 5), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 6, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 4), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 7, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 3), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 8, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 2), TimerFlags.STOP_ON_MAPCHANGE);
+            AddTimer(startTimerAt + 9, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 1), TimerFlags.STOP_ON_MAPCHANGE);
+        }
+        
 
         public void SetRandomMapList()
         {
@@ -167,14 +193,20 @@ namespace MapCycle
             Random rnd = new Random();
             List<MapItem> configList = Config.Maps;
             List<MapItem> shuffledList = configList.OrderBy(x => rnd.Next()).ToList();
-
+            shuffledList.RemoveAll(x => x.Name == Server.MapName);
             List<MapItem> randomElements = shuffledList.Take(Config.Rtv.VoteMapCount).ToList();
             MapList = randomElements;
         }
 
         public void RtvCommand()
         {
-            if (Localizer == null) return;
+            var menu = BuildMenu();
+            DisplayMenuForAllUsers(menu);
+        }
+
+        private ChatMenu BuildMenu()
+        {
+            if (Localizer == null) return new ChatMenu("");
 
             var menu = new ChatMenu(Localizer["AnnounceVoteHow"]);
             var i = 1;
@@ -187,10 +219,25 @@ namespace MapCycle
                 i++;
             });
 
+            AddExtendOption(menu, i);
+            return menu;
+        }
+
+        public void DisplayMenuForAllUsers(ChatMenu menu)
+        {
             foreach (var player in Utilities.GetPlayers())
             {
                 ChatMenus.OpenMenu(player, menu);
             }
+        }
+
+        private void AddExtendOption(ChatMenu menu, int index)
+        {
+            if(Config != null && !Config.Rtv.ExtendMap) return;
+                
+            menu.AddMenuOption(Localizer!["ExtendMap"], (controller, options) => {
+                AddVote(controller, options, $"{index}");
+            });
         }
 
         public void AddVote(CCSPlayerController? caller, ChatMenuOption info, string vote)
@@ -206,15 +253,24 @@ namespace MapCycle
                 } else {
                     int number = int.Parse(vote);
                     var commandIndex = number - 1;
-                    if(commandIndex > MapList.Count - 1 || commandIndex < 0)
+                    var votedForExtend = Config!.Rtv.ExtendMap && commandIndex == MapList.Count && Config!.Rtv.ExtendMap;
+                    var votedForMap = commandIndex <= MapList.Count - 1 && commandIndex >= 0;
+
+                    if(!votedForExtend && !votedForMap)
                     {
                         LocalizationExtension.PrintLocalizedChat(caller, Localizer, "VoteInvalid");
                         return;
-                    } else {
+                    } else if(votedForExtend || votedForMap) {
                         PlayerVotedList.Add(caller!.PlayerName);
                         VoteList.Add(commandIndex);
                         VoteCount++;
-                        LocalizationExtension.PrintLocalizedChat(caller, Localizer, "VoteConfirm", MapList[commandIndex].DName());
+                        if(votedForExtend)
+                        {
+                            LocalizationExtension.PrintLocalizedChat(caller, Localizer, "VoteConfirmExtend");
+                        }
+                        else {
+                            LocalizationExtension.PrintLocalizedChat(caller, Localizer, "VoteConfirm", MapList[commandIndex].DName());
+                        }
                     }
                 }
             }

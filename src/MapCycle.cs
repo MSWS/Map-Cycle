@@ -15,7 +15,7 @@ public partial class MapCycle : BasePlugin, IPluginConfig<ConfigGen>
     // plugin informations
     public override string ModuleName => "MapCycle";
     public override string ModuleAuthor => "NANOR";
-    public override string ModuleVersion => "1.4.2";
+    public override string ModuleVersion => "1.4.3";
 
     // plugin configs
     public ConfigGen Config { get; set; } = null!;
@@ -86,6 +86,7 @@ public partial class MapCycle : BasePlugin, IPluginConfig<ConfigGen>
     {
         _rtv?.Reset();
         if (_nextMap == null) return;
+        if(CurrentMap() == _nextMap && Config.Rtv.ExtendMap) return;
 
         _nextMap.Start();
     } 

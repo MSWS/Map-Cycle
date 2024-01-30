@@ -21,5 +21,8 @@
     "RtvCommandDisabled": "%prefix% O comando !rtv foi desabilitado.",
     "MapChangingIn": "%prefix% O Mapa irá mudar em {0} segundos",
     "AlreadyVotedByPlayers": "%prefix% Players já votaram.",
-    "VoteAlreadyStarted": "%prefix% Uma votação foi iniciada!!"
+    "VoteAlreadyStarted": "%prefix% Uma votação foi iniciada!!",
+    "ExtendMap": "Continuar neste mapa",
+    "VoteConfirmExtend": "%prefix% Você votou para continuar neste mapa.",
+    "VoteEndingIn": "%prefix% A votação irá terminar em {0} segundos"
 }

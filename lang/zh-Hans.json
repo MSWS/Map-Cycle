@@ -25,5 +25,8 @@
     "RtvNeedMoreRtvForVote": "%prefix% {0}/{1}. 我们需要更多的玩家来投票",
     "RtvNeedMoreRtvForSwitchMap": "%prefix% {0}/{1}. 我们需要更多的玩家来更换地图",
     "AlreadySaidRtv": "%prefix% 你已经说过rtv了",
-    "RtvReset": "%prefix% rtv已重置"
+    "RtvReset": "%prefix% rtv已重置",
+    "ExtendMap": "继续进行此地图",
+    "VoteConfirmExtend": "%prefix% 你已经投票继续进行此地图",
+    "VoteEndingIn": "%prefix% 投票将在 {0} 秒后结束"
 }

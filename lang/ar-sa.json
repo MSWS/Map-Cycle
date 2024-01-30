@@ -25,5 +25,8 @@
     "RtvNeedMoreRtvForVote": "%prefix% {0}/{1}. نحتاج المزيد من اللاعبين للتصويت",
     "RtvNeedMoreRtvForSwitchMap": "%prefix% {0}/{1}. نحتاج المزيد من اللاعبين لتغيير الخريطة",
     "AlreadySaidRtv": "%prefix% لقد قلت بالفعل rtv",
-    "RtvReset": "%prefix% تم إعادة تعيين rtv"
+    "RtvReset": "%prefix% تم إعادة تعيين rtv",
+    "ExtendMap": "استمر على هذه الخريطة",
+    "VoteConfirmExtend": "%prefix% لقد صوتت لتمديد الخريطة",
+    "VoteEndingIn": "%prefix% سينتهي التصويت في {0} ثانية"
 }

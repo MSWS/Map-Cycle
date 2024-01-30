@@ -45,7 +45,7 @@ namespace MapCycle
             var cvar4 = ConVar.Find("mp_endmatch_votenextmap_keepcurrent");
             cvar4?.SetValue(false);
             var cvar5 = ConVar.Find("mp_endmatch_votenextleveltime");
-            cvar5?.SetValue(false);
+            cvar5?.SetValue(0f);
         }
     }
 }

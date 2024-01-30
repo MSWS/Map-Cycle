@@ -25,5 +25,8 @@
     "RtvNeedMoreRtvForVote": "%prefix% {0}/{1}. Voce precisa de rtv para iniciar uma votacao",
     "RtvNeedMoreRtvForSwitchMap": "%prefix% {0}/{1}. Voce precisa de rtv para mudar o mapa",
     "AlreadySaidRtv": "%prefix% Voce ja disse rtv",
-    "RtvReset": "%prefix% O rtv foi reiniciado"
+    "RtvReset": "%prefix% O rtv foi reiniciado",
+    "ExtendMap": "Continuar neste mapa",
+    "VoteConfirmExtend": "%prefix% Voce votou para continuar neste mapa",
+    "VoteEndingIn": "%prefix% A votacao termina em {0} segundos"
 }

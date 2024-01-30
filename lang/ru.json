@@ -25,5 +25,8 @@
     "RtvNeedMoreRtvForVote": "%prefix% {0}/{1}. Мы должны получить больше голосов, чтобы начать голосование",
     "RtvNeedMoreRtvForSwitchMap": "%prefix% {0}/{1}. Мы должны получить больше голосов, чтобы сменить карту",
     "AlreadySaidRtv": "%prefix% Вы уже сказали rtv",
-    "RtvReset": "%prefix% RTV сброшен"
+    "RtvReset": "%prefix% RTV сброшен",
+    "ExtendMap": "Продолжить на этой карте",
+    "VoteConfirmExtend": "%prefix% Вы проголосовали за продолжение на этой карте",
+    "VoteEndingIn": "%prefix% Голосование заканчивается через {0} секунд"
 }

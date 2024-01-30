@@ -25,5 +25,8 @@
     "RtvNeedMoreRtvForVote": "%prefix% {0}/{1}. Wir brauchen mehr Spieler, um eine Abstimmung zu starten",
     "RtvNeedMoreRtvForSwitchMap": "%prefix% {0}/{1}. Wir brauchen mehr Spieler, um die Karte zu wechseln",
     "AlreadySaidRtv": "%prefix% Du hast bereits RTV gesagt",
-    "RtvReset": "%prefix% RTV wurde zurückgesetzt"
+    "RtvReset": "%prefix% RTV wurde zurückgesetzt",
+    "ExtendMap": "Setze auf dieser Karte fort",
+    "VoteConfirmExtend": "%prefix% Du hast für eine Verlängerung der Karte gestimmt",
+    "VoteEndingIn": "%prefix% Die Abstimmung endet in {0} Sekunden"
 }

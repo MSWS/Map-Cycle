@@ -117,6 +117,7 @@ The configuration file is automatically generated in `game/csgo/addons/counterst
   - `VoteDurationInSeconds`: The duration of the vote in seconds.
   - `VoteRatioEnabled`: Enables the use of `VoteRatio`.
   - `VoteRatio`: From 0.0 to 1.0. The minimum ratio of players for the vote to be valid, otherwise a map will be chosen by the map cycle.
+  - `ExtendMap`: Adds a voting option to continue on the current map
 
 Each map in the configuration file includes the following attributes:
 - `Name`: The actual name of the map (e.g., `de_dust2`, `de_cbble`).
@@ -159,7 +160,8 @@ Each map in the configuration file includes the following attributes:
     "VoteMapCount": 5,
     "VoteDurationInSeconds": 30,
     "VoteRatioEnabled": true,
-    "VoteRatio": 0.5
+    "VoteRatio": 0.5,
+    "ExtendMap": false
   },
   "ConfigVersion": 2
 }
@@ -170,35 +172,15 @@ Each map in the configuration file includes the following attributes:
 #### <u>If the Cycle doesn't work as expected and it restarts to the first map</u>
 1) **Check if the JSON config is correctly formated.** You can use this tool to verify that: https://jsonformatter.curiousconcept.com/
 If it's correctly formated then you'll have a green screen
-
-![img](https://drive.google.com/uc?export=view&id=1rzZxelI_hmk1yVMJICXckw6eBBJmfGyx)
-
 If not, you'll have a red screen with explanations:
-
-![img](https://drive.google.com/uc?export=view&id=1RW5HQ8jc363xEVKZzrJwC3Lvk0YOPmLv)
-
 
 2) **Check if the map name is correct.**
 Set the map on your server with `host_workshop_map 123123123` and when the map has started you verify the name directly on the steam server browser.
-![img](https://drive.google.com/uc?export=view&id=1vJllKCRsX9oUR9HC4yNrzkE45jxM8NnL)
-
-### <u>ConfigGen Class</u>
-- `Maps`: A list of `MapItem` objects, with each object representing a map in the rotation cycle.
-
-### <u>MapItem Class</u>
-- `Name`: The name of the map.
-- `Id`: The map's unique ID, used for workshop maps.
-- `Workshop`: A boolean value indicating whether the map is sourced from the workshop (`true`) or is a standard map (`false`).
-
-## <u>Usage</u>
-1. Configure your map cycle in the provided configuration file.
-2. Install and activate the plugin on your CounterStrikeSharp server.
-3. The plugin will automatically manage map rotation, announcing the next map to players at the conclusion of each match.
 
 ## <u>Author</u>
 - ModuleName: MapCycle
 - ModuleAuthor: NANOR
-- ModuleVersion: 1.4.2
+- ModuleVersion: 1.4.3
 
 ## <u>Support</u>
 For assistance, please raise an issue on the GitHub repository of the project.

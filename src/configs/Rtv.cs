@@ -59,4 +59,7 @@ public class RtvConfig
 
     [JsonPropertyName("VoteRatio")]
     public float VoteRatio { get; set; } = 0.5f;
+
+    [JsonPropertyName("ExtendMap")]
+    public bool ExtendMap { get; set; } = false;
 }
