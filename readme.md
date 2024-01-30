@@ -22,53 +22,17 @@ I dedicate a significant part of my free time to coding and developing meaningfu
 - [CS2 Simple Admin](https://github.com/daffyyyy/CS2-SimpleAdmin)
 
 ## <u>Commands</u>
-#### <u>Admins</u>
-1) **`!addmap cs_assault Assault 3070594412`**: This command allows you to add a new map to the cycle without having to manually edit the configuration file.
-    - Pattern: `!addmap mapname display_name workshopid_or_mapname_for_offi_map`
-    - E.g WS map:  `!addmap cs_assault Assault 3070594412`
-    - E.g official map:  `!addmap de_dust2 "Dust 2" de_dust2`
-
----
-
-2) **`!removemap cs_assault`**: This command allows you to remove a map from the cycle directly in-game or from the console, eliminating the need to manually edit the configuration file.
-    - Pattern: `!removemap mapname`
-    - E.g WS map: `!removemap cs_assault`
-    - E.g official map: `!removemap de_dust2`
-
----
-
-3) **`!keepmap Assault`**: This command allows you to add the current map to the cycle.
-    - Pattern: `!keepmap [optional]mapDisplayName`
-
-    It automatically detects if it's a workshop map or not.
-    
-    How to use it:
-    - For a workshop map (`!goto 123123123`): You can type the map ID directly with the `goto` command, even if it's not in the cycle. Once you're on the map, if you enjoy it, you can type `!keepmap` or `!keepmap NoobMap` with the display name or not. By default, the display name will be the map name.
-    - For an official map (`!goto de_inferno`): You can type the map name directly with the `goto` command, even if it's not in the cycle. Once you're on the map, if you enjoy it, you can type `!keepmap` or `!keepmap Inferno` with the display name or not. By default, the display name will be the map name.
-
----
-
-4) **`!goto cs_assault`**: This command allows direct access to a chosen map (`de_dust2` in this case) in your cycle, bypassing the need to wait for the current match to end. You can also go to a map workshop ID using the command `!goto 123123123`, even if it's not in the cycle.
-
----
-
-5) **`!go`**: Use this command to immediately transition to the next map, without the need to wait for the current match to conclude.
-
----
-
-6) **`!cfgr`**: This command allows you to change a value in the plugin configuration without having to restart the server.
-When you have finished changing the values in the JSON config file, type `!cfgr` in the chat and the added options will take effect in the current session without the need to restart.
-
----
-
-7) **`!resetrtv`**: Allows you to reset the RTV. You can then start a new vote or players can use the !rtv command again even if they have already used it before.
-
-#### <u>All players</u>
-
-1) **`!nextmap` / `!nextmap de_dust2`**: Enter `!nextmap` to view the next map. To select a different map, type `!nextmap de_dust2` or `!nextmap de_aztec`. **Notice that the command to set the nextmap is only allowed to admins.**
-
----
-2) **`!rtv`**: Use this command to initiate a vote or to trigger a map change (depending a ratio or not).
+| Command | Usage Example | Explanation | Accessibility |
+|---------|---------------|-------------|---------------|
+| `!addmap` | `!addmap cs_assault Assault 3070594412` | Adds a new map to the cycle without manually editing the configuration file | Admin |
+| `!removemap` | `!removemap cs_assault` | Removes a map from the cycle directly in-game or from the console | Admin |
+| `!keepmap` | `!keepmap [optional]mapDisplayName` | Adds the current map to the cycle | Admin |
+| `!goto` | `!goto cs_assault` | Allows direct access to a chosen map in the cycle, bypassing the need to wait for the current match to end | Admin |
+| `!go` | `!go` | Immediately transitions to the next map | Admin |
+| `!cfgr` | `!cfgr` | Changes a value in the plugin configuration without restarting the server | Admin |
+| `!resetrtv` | `!resetrtv` | Resets the Rock The Vote (RTV) | Admin |
+| `!nextmap` | `!nextmap` / `!nextmap de_dust2` | Displays the next map or sets a different next map | Player/Admin |
+| `!rtv` | `!rtv` | Initiates a vote or triggers a map change based on a ratio | Player |
 
 
 ## <u>Installation</u>
@@ -117,7 +81,7 @@ The configuration file is automatically generated in `game/csgo/addons/counterst
   - `VoteDurationInSeconds`: The duration of the vote in seconds.
   - `VoteRatioEnabled`: Enables the use of `VoteRatio`.
   - `VoteRatio`: From 0.0 to 1.0. The minimum ratio of players for the vote to be valid, otherwise a map will be chosen by the map cycle.
-  - `ExtendMap`: Adds a voting option to continue on the current map
+  - `ExtendMap`: Ajoute une option de vote pour continuer sur la map en cours
 
 Each map in the configuration file includes the following attributes:
 - `Name`: The actual name of the map (e.g., `de_dust2`, `de_cbble`).
