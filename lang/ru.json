@@ -7,7 +7,6 @@
     "NoVotes": "%prefix% Никто не голосовал, следующая карта будет выбрана в цикле карт",
     "VoteFinished": "%prefix% Голосование закончено!",
     "VoteNotOpen": "%prefix% Голосование еще не открыто",
-    "VotedAlready": "%prefix% Вы уже голосовали",
     "VoteInvalid": "%prefix% Голос недействителен",
     "VoteConfirm": "%prefix% Вы проголосовали за {0}",
     "AnnounceVoteHow": "%prefix% Проголосуйте за следующую карту, введя: !<number>",

@@ -7,7 +7,6 @@
     "NoVotes": "%prefix% Nadie votó, el próximo mapa se elegirá en el ciclo de mapas",
     "VoteFinished": "%prefix% ¡La votación ha finalizado!",
     "VoteNotOpen": "%prefix% Las votaciones aún no están abiertas",
-    "VotedAlready": "%prefix% Ya has votado",
     "VoteInvalid": "%prefix% Voto inválido",
     "VoteConfirm": "%prefix% Has votado por {0}",
     "AnnounceVoteHow": "{red}[MapCycle] {default}Vota por el próximo mapa escribiendo: !1, o !2, o !3, etc...",

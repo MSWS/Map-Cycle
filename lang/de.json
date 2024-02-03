@@ -7,7 +7,6 @@
     "NoVotes": "%prefix% Niemand hat abgestimmt, die nächste Karte wird im Kartenzyklus ausgewählt",
     "VoteFinished": "%prefix% Die Abstimmung ist beendet!",
     "VoteNotOpen": "%prefix% Die Abstimmung ist noch nicht eröffnet",
-    "VotedAlready": "%prefix% Du hast bereits abgestimmt",
     "VoteInvalid": "%prefix% Ungültige Abstimmung",
     "VoteConfirm": "%prefix% Du hast für {0} abgestimmt",
     "AnnounceVoteHow": "{red}[Map Cycle] {default}Stimme für die nächste Karte ab, indem du !1, oder !2, oder !3, usw. eingibst...",
