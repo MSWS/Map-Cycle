@@ -172,17 +172,9 @@ namespace MapCycle
             if(Config == null) return;
             var startTimerAt = Config.Rtv.VoteDurationInSeconds - 10;
 
-            // Add a timer for last 5 seconds
-            AddTimer(startTimerAt, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 10), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 1, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 9), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 2, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 8), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 3, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 7), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 4, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 6), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 5, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 5), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 6, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 4), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 7, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 3), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 8, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 2), TimerFlags.STOP_ON_MAPCHANGE);
-            AddTimer(startTimerAt + 9, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 1), TimerFlags.STOP_ON_MAPCHANGE);
+            // Add a timer for last 10 seconds
+            for(int i = 0; i < 10; i++)
+                AddTimer(startTimerAt + i, () => LocalizationExtension.PrintLocalizedChatAll(Localizer, "VoteEndingIn", 10 - i), TimerFlags.STOP_ON_MAPCHANGE);
         }
         
 

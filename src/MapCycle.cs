@@ -15,7 +15,7 @@ public partial class MapCycle : BasePlugin, IPluginConfig<ConfigGen>
     // plugin informations
     public override string ModuleName => "MapCycle";
     public override string ModuleAuthor => "NANOR";
-    public override string ModuleVersion => "1.4.4";
+    public override string ModuleVersion => "1.4.4.{GIT_VERSION}";
 
     // plugin configs
     public ConfigGen Config { get; set; } = null!;
