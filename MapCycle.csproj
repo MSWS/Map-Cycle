@@ -6,6 +6,23 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+      <!--CI Configurations-->
+      <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+      <!--Publish Configuration-->
+      <PublishDir>$(MSBuildThisFileDirectory)/../../build/MapCycle</PublishDir>
+      <PublishRelease>false</PublishRelease>
+      <PublishSelfContained>false</PublishSelfContained>
+      <PublishDocumentationFile>true</PublishDocumentationFile>
+
+      <!--Host Options-->
+      <RollForward>Major</RollForward>
+      <UseAppHost>false</UseAppHost>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="CounterStrikeSharp.API" Version="1.0.142" />
     <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0" />
