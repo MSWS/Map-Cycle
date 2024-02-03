@@ -21,7 +21,7 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore MapCycle.csproj
     - name: Build
       run: dotnet build MapCycle.csproj --no-restore
     - name: Publish
