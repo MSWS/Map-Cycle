@@ -13,7 +13,7 @@
 
   <PropertyGroup>
       <!--Publish Configuration-->
-      <PublishDir>$(MSBuildThisFileDirectory)/../../build/MapCycle</PublishDir>
+      <PublishDir>$(MSBuildThisFileDirectory)/build/MapCycle</PublishDir>
       <PublishRelease>false</PublishRelease>
       <PublishSelfContained>false</PublishSelfContained>
       <PublishDocumentationFile>true</PublishDocumentationFile>
