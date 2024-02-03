@@ -197,7 +197,7 @@ namespace MapCycle
             _rtv.PlayerSaidRtv.Add(caller!.PlayerName);
             var PlayerSaidRtvCount = _rtv.PlayerSaidRtv.Count();
             var playerWithoutBotsCountFloat = (float)Utilities.GetPlayers().Count(p => !p.IsBot);
-            var minimumPlayerCount = (int)playerWithoutBotsCountFloat * Config.Rtv.PlayerCommandRatio;
+            var minimumPlayerCount = (int)Math.Ceiling(playerWithoutBotsCountFloat * Config.Rtv.PlayerCommandRatio);
             var hasEnoughRtv = PlayerSaidRtvCount >= minimumPlayerCount;
 
             if (Config.Rtv.PlayerCommandTriggerAVote){
