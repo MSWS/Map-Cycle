@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Insert Job Version
-      run: sed -i "s/{GIT_VERSION}/${{github.run_number}}/g" src/MapCycle/MapCycle.cs
+      run: sed -i "s/{GIT_VERSION}/${{github.run_number}}/g" src/MapCycle.cs
     
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
@@ -23,9 +23,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build src/MapCycle/MapCycle.csproj --no-restore
+      run: dotnet build MapCycle.csproj --no-restore
     - name: Publish
-      run: dotnet publish src/MapCycle/MapCycle.csproj --no-build --no-restore
+      run: dotnet publish MapCycle.csproj --no-build --no-restore
     
     - uses: actions/upload-artifact@v4.0.0
       with:
